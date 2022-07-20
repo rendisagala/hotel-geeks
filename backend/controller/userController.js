@@ -46,7 +46,7 @@ export const userController = {
             img: req.body.img,
             phone: req.body.phone,
             country: req.body.country,
-            booking: [],
+            booking: { hotel_id: [], price: [] },
           }).save();
           res.status(201).json(saveUser);
         }
