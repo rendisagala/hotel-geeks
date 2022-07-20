@@ -2,91 +2,127 @@ import mongoose from "mongoose";
 
 const Hotel = mongoose.Schema(
   {
-    title: {
+    hotel: {
       type: String,
       required: true,
     },
-    name: {
-      type: String,
+    stars: {
+      type: Number,
       required: true,
     },
-    alt: {
-      type: String,
+    rating: {
+      type: Number,
       required: true,
     },
-    address: {
+    reviews: {
       type: String,
       required: true,
-    },
-    directions: {
-      type: String,
-      required: true,
-    },
-    phone: {
-      type: String,
-      required: true,
-    },
-    tollfree: {
-      type: String,
-      required: true,
-      default: null,
-    },
-    email: {
-      type: String,
-      required: true,
-    },
-    fax: {
-      type: String,
-      required: true,
-    },
-    url: {
-      type: String,
-      required: true,
-      default: null,
-    },
-    hours: {
-      type: String,
-      required: true,
-      default: null,
-    },
-    checkin: {
-      type: String,
-      required: true,
-      default: null,
-    },
-    checkout: {
-      type: String,
-      required: true,
-      default: null,
-    },
-    image: {
-      type: String,
-      required: true,
-      default: null,
     },
     price: {
       type: String,
       required: true,
-      default: null,
     },
-    content: {
+
+    facilities: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    food_and_drink: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    hotel_services: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    in_room_facilities: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    business_facilities: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    nearby_facilities: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    public_facilities: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    general: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    things_to_do: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    accessibility: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    connectivity: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    transportation: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    kids_and_pets: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    sports_and_recreations: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    shuttle_service: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    description: {
       type: String,
       required: true,
     },
-    geo: {
-      lat: 47.6869,
-      lon: 17.65468,
-    },
-    activity: {
+    image: {
       type: String,
       required: true,
     },
-    type: {
+    city: {
       type: String,
-      required: true,
-    },
-    id: {
-      type: Number,
       required: true,
     },
   },

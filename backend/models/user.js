@@ -26,10 +26,16 @@ const User = mongoose.Schema(
       type: String,
       required: true,
     },
-    city: {
+    country: {
       type: String,
       required: true,
     },
+    booking: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
   },
   {
     versionKey: false,
