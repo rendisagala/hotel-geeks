@@ -17,5 +17,6 @@ router.route("/user").post(userController.addUser);
 router.route("/user").put(userController.updateUser);
 router.route("/user/:id").delete(userController.deleteUser);
 router.route("/login").post(loginController.login);
+router.route("/book").post(bookingController.book);
 
 export default router;

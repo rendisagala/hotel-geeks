@@ -1,4 +1,8 @@
 import User from "../models/user.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
 
 export const loginController = {
   login: [
@@ -6,7 +10,6 @@ export const loginController = {
       try {
         const { username, password } = req.body;
         const user = await User.findOne({ username: username });
-
         if ((user !== null) & (await bcrypt.compare(password, user.password))) {
           const token = await jwt.sign(
             {

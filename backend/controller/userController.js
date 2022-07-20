@@ -32,7 +32,7 @@ export const userController = {
         //   check if user exist
         const usernameExist = await User.find({ username: req.body.username });
         const emailExist = await User.find({ email: req.body.email });
-        if (usernameExist.length > 0 || emailExist.length > 0) {
+        if (usernameExist !== null || emailExist !== null) {
           res.status(500).json({
             message: `username or email exist`,
           });

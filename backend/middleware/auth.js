@@ -10,7 +10,7 @@ export const auth = {
 
       jwt.verify(token, process.env.JWT, (err, user) => {
         if (err) res.status(403).json({ message: `Token not valid` });
-        req.user = user;
+        req.username = user.username;
         next();
       });
     },
@@ -18,7 +18,7 @@ export const auth = {
   verifyUser: [
     (req, res, next) => {
       verifyToken(req, res, next, () => {
-        if (req.user.id === req.params.id || req.user.isAdmin) {
+        if (req.user.id === req.params.id) {
           next();
         } else {
           res.status(403).json({ message: `Unauthorized` });
