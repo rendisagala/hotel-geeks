@@ -30,12 +30,16 @@ const User = mongoose.Schema(
       type: String,
       required: true,
     },
-    booking: [
-      {
+    booking: {
+      hotel_id: {
         type: String,
         required: true,
       },
-    ],
+      price: {
+        type: String,
+        required: true,
+      },
+    },
   },
   {
     versionKey: false,
