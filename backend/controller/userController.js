@@ -32,7 +32,7 @@ export const userController = {
         //   check if user exist
         const usernameExist = await User.find({ username: req.body.username });
         const emailExist = await User.find({ email: req.body.email });
-        if (usernameExist !== null || emailExist !== null) {
+        if (usernameExist.length > 0 || emailExist.length > 0) {
           res.status(500).json({
             message: `username or email exist`,
           });
@@ -46,7 +46,7 @@ export const userController = {
             img: req.body.img,
             phone: req.body.phone,
             country: req.body.country,
-            booking: { hotel_id: [], price: [] },
+            booking: [],
           }).save();
           res.status(201).json(saveUser);
         }
