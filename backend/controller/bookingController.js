@@ -1,16 +1,11 @@
 import User from "../models/user.js";
-import Hotel from "../models/hotel.js";
-import { auth } from "../middleware/auth.js";
 
 export const bookingController = {
   book: [
-    // auth.verifyToken,
     async (req, res) => {
-      req.username = "admin";
-      const user = await User.findOne({ username: req.username });
       try {
         await User.findOneAndUpdate(
-          { username: req.username },
+          { _id: req.params.id },
           {
             $addToSet: {
               booking: req.body.hotel_id,
@@ -20,6 +15,25 @@ export const bookingController = {
         res.status(200).json({ message: `Hotel Booked` });
       } catch (error) {
         res.status(417).json({ message: `Fail to Book Hotel` });
+      }
+    },
+  ],
+  delete: [
+    async (req, res) => {
+      try {
+        await User.findOneAndUpdate(
+          {
+            _id: req.params.id,
+          },
+          {
+            $pull: {
+              booking: req.body.hotel_id,
+            },
+          }
+        );
+        res.status(200).json({ message: `Hotel Deleted` });
+      } catch (error) {
+        res.status(417).json({ message: `Fail to Delete Hotel` });
       }
     },
   ],
