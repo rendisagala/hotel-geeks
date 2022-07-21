@@ -19,7 +19,7 @@ router.route("/hotel").get(hotelController.getAllHotel);
 router.route("/hotel").post(hotelController.addHotel);
 
 router.route("/user/:id").get(userController.getUserById);
-router.route("/user:id").put(userController.updateUser);
+router.route("/user/:id").put(userController.updateUser);
 router.route("/user/:id").delete(userController.deleteUser);
 
 router.route("/hotel/:id").get(hotelController.getHotelById);
