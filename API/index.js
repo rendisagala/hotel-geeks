@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // routes
-app.use(routes);
+app.use("/api/v1", routes);
 
 // port
 const PORT = 5000;
